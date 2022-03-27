@@ -1,29 +1,51 @@
-import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
-import Home from '../views/Home.vue'
-import Main from "@/views/Main";
+import {createRouter, createWebHashHistory} from 'vue-router'
+import Login from '../views/Login.vue'
+import MainLayouts from "@/layouts/MainLayouts";
+import Balda from "@/components/Balda";
+import Evelina from "@/components/Evelina";
+import SuperGame from "@/components/SuperGame";
 
 const routes = [
   {
     path: '/',
-    component: Home,
-    name: 'home',
+    component: Login,
+    name: 'login',
     meta: {
       title: 'Эвелинка',
     }
   },
   {
     path: '/evelina',
-    name: 'main',
-    component: Main,
+    name: 'evelina',
+    component: Evelina,
     meta: {
-      // layout: 'std-layout',
+      layout: MainLayouts,
+      title: 'Эвелинка',
+    }
+  },
+  {
+    path: '/balda',
+    name: 'balda',
+    component: Balda,
+    props: true,
+    meta: {
+      layout: MainLayouts,
+      title: 'Эвелинка',
+    }
+  },
+  {
+    path: '/super-game',
+    name: 'super-game',
+    component: SuperGame,
+    meta: {
+      layout: MainLayouts,
       title: 'Эвелинка',
     }
   },
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 })
 

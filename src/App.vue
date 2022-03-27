@@ -1,6 +1,27 @@
 <template>
-  <router-view/>
+  <component :is="layout">
+    <router-view></router-view>
+  </component>
 </template>
+
+<script>
+import MainLayouts from "@/layouts/MainLayouts";
+import Home from "@/views/Login";
+
+export default {
+
+  components:{
+    MainLayouts: MainLayouts,
+    Home: Home,
+  },
+  computed:{
+    layout(){
+      return this.$route.meta.layout || Home
+    }
+  },
+
+}
+</script>
 
 <style>
 *{
